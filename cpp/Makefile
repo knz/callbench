@@ -7,7 +7,7 @@ CXXFLAGS = -std=c++17 -O3 -fomit-frame-pointer
 all: nargs_cpp.log
 
 nargs_cpp.log: nargs
-	./nargs | tee $@.tmp
+	./nargs 2>&1 | tee $@.tmp
 	mv -f $@.tmp $@
 
 nargs: nargs.cc $(NARGS_DEPS) $(CPPBENCH_DEPS)
