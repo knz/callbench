@@ -1,0 +1,25 @@
+goos: freebsd
+goarch: amd64
+pkg: github.com/knz/callbench/go
+BenchmarkRet1  	1000000000	         2.53 ns/op
+BenchmarkRet2  	1000000000	         2.64 ns/op
+BenchmarkRet3  	1000000000	         2.64 ns/op
+BenchmarkRet4  	1000000000	         2.66 ns/op
+BenchmarkRet5  	1000000000	         2.54 ns/op
+BenchmarkRet6  	1000000000	         2.75 ns/op
+BenchmarkRet7  	500000000	         3.03 ns/op
+BenchmarkRet8  	500000000	         3.30 ns/op
+BenchmarkRet9  	500000000	         3.58 ns/op
+BenchmarkRet10 	500000000	         3.85 ns/op
+BenchmarkRet11 	300000000	         4.13 ns/op
+BenchmarkRet12 	300000000	         4.41 ns/op
+BenchmarkRet13 	300000000	         4.68 ns/op
+BenchmarkRet14 	300000000	         4.96 ns/op
+BenchmarkRet15 	300000000	         5.23 ns/op
+BenchmarkRet16 	300000000	         5.51 ns/op
+BenchmarkRet17 	300000000	         5.78 ns/op
+BenchmarkRet18 	200000000	         6.05 ns/op
+BenchmarkRet19 	200000000	         6.33 ns/op
+BenchmarkRet20 	200000000	         6.61 ns/op
+PASS
+ok  	github.com/knz/callbench/go	45.273s
