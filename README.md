@@ -8,3 +8,5 @@ Included:
   function. Measure explict arguments vs. variable argument lists.
 
 - `ret`: measure the impact of returning more values.
+
+- `err`: compare error returns vs exceptions.

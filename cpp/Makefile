@@ -1,9 +1,10 @@
 CPPBENCH_DIR = ../../cppbench
 CPPBENCH_DEPS = $(CPPBENCH_DIR)/bench.cc $(CPPBENCH_DIR)/bench.hh
 
-CXXFLAGS = -std=c++17 -O3 -fomit-frame-pointer -fno-optimize-sibling-calls
+# CXX = g++8
+CXXFLAGS = -std=c++17 -O3 -fno-optimize-sibling-calls -fomit-frame-pointer
 
-PROGRAMS := nargs ret
+PROGRAMS := nargs ret err
 
 all: $(PROGRAMS:%=%_cpp.log)
 
