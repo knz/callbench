@@ -20,10 +20,13 @@ long leafNoErr(long arg) {
 }
 
 noinline
+long intermediateNoErr(long arg) { NOP(arg); return leafNoErr(arg); }
+
+noinline
 long workNoErr(long work) {
 	long n = 0;
 	for (long i = 0; i < work; i++)
-		n += leafNoErr(work + 1);
+		n += intermediateNoErr(work + 1);
 	return n;
 }
 
@@ -58,11 +61,14 @@ long leafExc(long arg) {
 }
 
 noinline
+long intermediateExc(long arg) { NOP(arg); return leafExc(arg); }
+
+noinline
 long workExc(long work) {
 	try {
 		long n = 0;
 		for (long i = 0; i < work; i++)
-			n += leafExc(work + 1);
+			n += intermediateExc(work + 1);
 		return n;
 	} catch (error *e) {
 		return 42;
@@ -93,12 +99,15 @@ result leafErr(long arg) {
 }
 
 noinline
+result intermediateErr(long arg) { NOP(arg); return leafErr(arg); }
+
+noinline
 long workErr(long work) {
 	long n = 0, leafWork = work + 1;
 	for (long i = 0; i < work; i++) {
 		NOP(i); NOP(leafWork);
-		auto res = leafErr(leafWork);
-		if (std::get<1>(res))
+		auto res = intermediateErr(leafWork);
+		if (unlikely(std::get<1>(res)))
 			return 42;
 		n += std::get<0>(res);
 	}

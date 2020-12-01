@@ -2,7 +2,7 @@ CPPBENCH_DIR = ../../cppbench
 CPPBENCH_DEPS = $(CPPBENCH_DIR)/bench.cc $(CPPBENCH_DIR)/bench.hh
 
 # CXX = g++8
-CXXFLAGS = -std=c++17 -O3 -fno-optimize-sibling-calls -fomit-frame-pointer
+CXXFLAGS = -std=c++17 -O3 -fno-optimize-sibling-calls -fomit-frame-pointer -I$(CPPBENCH_DIR)
 
 PROGRAMS := nargs ret err
 

@@ -19,10 +19,15 @@ func leafNoErr(arg int) int {
 }
 
 //go:noinline
+func intermediateNoErr(work int) int {
+	return leafNoErr(work)
+}
+
+//go:noinline
 func workNoErr(work int) int {
 	var n int
 	for i := 0; i < work; i++ {
-		n += leafNoErr(work + 1)
+		n += intermediateNoErr(work + 1)
 	}
 	return n
 }
@@ -50,6 +55,11 @@ func leafExc(arg int) int {
 }
 
 //go:noinline
+func intermediateExc(arg int) int {
+	return leafExc(arg)
+}
+
+//go:noinline
 func workExc(work int) (res int) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -58,7 +68,7 @@ func workExc(work int) (res int) {
 	}()
 	var n int
 	for i := 0; i < work; i++ {
-		n += leafExc(work + 1)
+		n += intermediateExc(work + 1)
 	}
 	return n
 }
@@ -84,10 +94,15 @@ func leafErr(arg int) (int, error) {
 }
 
 //go:noinline
+func intermediateErr(work int) (int, error) {
+	return leafErr(work)
+}
+
+//go:noinline
 func workErr(work int) int {
 	var n int
 	for i := 0; i < work; i++ {
-		val, err := leafErr(work)
+		val, err := intermediateErr(work)
 		if err != nil {
 			return 42
 		}
